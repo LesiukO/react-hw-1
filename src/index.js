@@ -10,6 +10,38 @@ const listOfPresidents = [
   'William Henry Harrison'
 ];
 
+const listOfObjects = [
+  {
+    firstName: 'John',
+    lastName: 'Tyler',
+    presidentIndex: 10
+  },
+  {
+    firstName: 'James',
+    lastName: 'Polk',
+    presidentIndex: 11
+  },
+  {
+    firstName: 'Zachary',
+    lastName: 'Taylor',
+    presidentIndex: 12
+  },
+  {
+    firstName: 'Millard',
+    lastName: 'Fillmore',
+    presidentIndex: 13
+  },
+  {
+    firstName: 'Franklin',
+    lastName: 'Pierce',
+    presidentIndex: 14
+  },
+];
+
+const formatPresident = president => {
+  return `${president.lastName}, ${president.firstName}, ${president.presidentIndex}-й`;
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <ul>
@@ -27,6 +59,14 @@ ReactDOM.render(
     <ul>
       {listOfPresidents.map(president => {
         return <li key={president}>{president}</li>
+      })}
+    </ul>
+
+    <ul>
+      {listOfObjects.filter(president => {
+        return president.presidentIndex % 2 !== 0;
+      }).map(president => {
+        return <li key={president.presidentIndex}>{formatPresident(president)}</li>
       })}
     </ul>
 
