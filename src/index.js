@@ -69,6 +69,10 @@ const isInPast = date => {
   }
 }
 
+const formState = {
+  newsletter: true
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <ul>
@@ -110,6 +114,33 @@ ReactDOM.render(
         </li>
       })}
     </ul>
+
+    <form action="https://postman-echo.com/post" method="post">
+      <div className="form-control">
+        <div><label htmlFor="name">Имя:</label></div>
+        <input type="text" id="name" name="name" required/>
+      </div>
+
+      <div className="form-control">
+        <div><label htmlFor="password">Пароль:</label></div>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <div className="form-control">
+        <label htmlFor="basicPlan">Базовый тариф</label>
+        <input type="radio" id="basicPlan" name="plan" value="basic" defaultChecked/>
+      </div>
+
+      <div className="form-control">
+        <label htmlFor="premiumPlan">Премиум тариф</label>
+        <input type="radio" id="premiumPlan" name="plan" value="premium"/>
+      </div>
+
+      <div className="form-control">
+        <input type="checkbox" id="newsletter" name="newsletter" defaultChecked />
+        <label htmlFor="newsletter">Присылайте мне новости на почту</label>
+      </div>
+    </form>
 
   </React.StrictMode>,
   document.getElementById('root')
