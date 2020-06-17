@@ -103,9 +103,7 @@ ReactDOM.render(
 
     <ul>
       {data.sort((previous, next) => {
-        if (previous.date < next.date) {
-          return -1;
-        }
+        return new Date(previous.date) - new Date(next.date)
       }).map( event => {
         return <li key={event.id} className={isInPast(event.date) && 'past'}>
           <p><a target="_blank" href={`https://www.facebook.com/events/${event.id}/`}>{event.title}</a></p>
@@ -140,6 +138,8 @@ ReactDOM.render(
         <input type="checkbox" id="newsletter" name="newsletter" defaultChecked />
         <label htmlFor="newsletter">Присылайте мне новости на почту</label>
       </div>
+
+      <button type="submit">Купить</button>
     </form>
 
   </React.StrictMode>,
